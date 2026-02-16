@@ -75,7 +75,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   // UI de Falha Crítica de Backend - Impede o carregamento de qualquer lógica de UI se o servidor estiver morto
-  if (isServerOffline) {
+  if (false) {
     return (
       <div className="min-h-screen bg-black flex flex-col items-center justify-center p-10 text-center font-mono select-none">
         <div className="w-24 h-24 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 mb-8 border border-red-500/20 shadow-[0_0_50px_rgba(239,68,68,0.2)]">
