@@ -65,7 +65,15 @@ It is an **operational control system**, built with a **backend-first architectu
 
 ---
 
-### Governance & Compliance
+## Recent Improvements
+
+- **Client Panel:** A dedicated panel for clients has been created, providing a user-friendly interface for managing their services.
+- **My Tickets Page:** A new page where clients can view and track their support tickets.
+- **Meeting Page:** A new page for clients to join and manage their scheduled meetings.
+
+---
+
+## Governance & Compliance
 - Policies
 - Security requirements
 - Operational standards
@@ -73,7 +81,7 @@ It is an **operational control system**, built with a **backend-first architectu
 
 ---
 
-### Audit & Logs
+## Audit & Logs
 - System activity logs
 - Administrative actions
 - Infrastructure changes
