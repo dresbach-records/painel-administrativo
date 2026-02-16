@@ -1,6 +1,9 @@
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import AdminLayout from './components/layout/AdminLayout';
+import ClientDashboard from './pages/client/Dashboard';
+import MyTickets from './pages/client/MyTickets';
 
 import AdminActiveMeeting from './pages/admin/AdminActiveMeeting';
 import AdminActiveRooms from './pages/admin/AdminActiveRooms';
@@ -30,6 +33,8 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<AdminLogin />} />
+          <Route path="/client/dashboard" element={<ClientDashboard />} />
+          <Route path="/client/tickets" element={<MyTickets />} />
           <Route
             path="/admin/*"
             element={

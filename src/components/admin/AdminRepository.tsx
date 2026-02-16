@@ -8,8 +8,8 @@ import {
   Download, Trash2, Eye, FileText, FolderArchive,
   Filter, ChevronLeft, X, Check, Upload, RefreshCcw, AlertTriangle
 } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
-import { repositoryService } from '@/services/repositoryService';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
+import { repositoryService } from '@/@/services/repository.service';
 
 export default function AdminRepository() {
   const navigate = useNavigate();

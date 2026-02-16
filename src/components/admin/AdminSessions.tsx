@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, ChevronLeft, ChevronRight, Video, Link2, Edit2, Trash2 } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
-import { clientDataService, Meeting } from '@/services/clientDataService';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
+import { clientDataService, Meeting } from '@/@/services/clientDataService';
 
 export default function AdminSessions() {
   const navigate = useNavigate();

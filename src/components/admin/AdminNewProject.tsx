@@ -6,10 +6,10 @@ import {
   ArrowRight, ShieldAlert, Cpu, Zap, Info, 
   RefreshCcw, AlertCircle
 } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
-import { projectService } from '@/services/projectService';
-import { auditService } from '@/services/auditService';
-import { useAnalysisStream } from '@/hooks/useAnalysisStream';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
+import { projectService } from '@/@/services/project.service';
+import { auditService } from '@/@/services/audit.service';
+import { useAnalysisStream } from '@/@/hooks/useAnalysisStream';
 
 type WizardStep = 'mode' | 'input' | 'analysis' | 'review';
 

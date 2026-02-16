@@ -5,8 +5,8 @@ import {
   Briefcase, Send, Clock, CheckCircle2, 
   ArrowLeft, ShieldCheck, CreditCard, FileText, AlertTriangle, Loader2
 } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
-import { api } from '@/services/api';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
+import { api } from '@/@/services/api';
 
 export default function AdminProposalGenerator() {
   const { id } = useParams();

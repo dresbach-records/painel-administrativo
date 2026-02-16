@@ -16,9 +16,9 @@
     "isolatedModules": true,
     "noEmit": true,
 
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["*"]
     },
 
     "types": []

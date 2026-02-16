@@ -5,9 +5,9 @@ import {
   Download, Zap, FileSearch, ChevronRight, 
   ArrowRight, Activity, Terminal, RefreshCcw
 } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
 import { useNavigate } from 'react-router-dom';
-import { api } from '@/services/api';
+import { api } from '@/@/services/api';
 
 interface AdminOverview {
   totalAudits: number;

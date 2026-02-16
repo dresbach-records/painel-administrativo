@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, Search, Video, ShieldCheck, Clock, CalendarCheck } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
-import { clientDataService } from '@/services/clientDataService';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
+import { clientDataService } from '@/@/services/clientDataService';
 
 export default function AdminScheduleMeeting() {
   const navigate = useNavigate();

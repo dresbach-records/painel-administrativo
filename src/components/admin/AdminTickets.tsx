@@ -7,8 +7,8 @@ import {
   Plus, MoreVertical, ChevronLeft, ChevronRight,
   LogOut, ShieldCheck, AlertTriangle, RefreshCcw
 } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
-import { ticketService } from '@/services/ticket.service';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
+import { ticketService } from '@/@/services/ticket.service';
 
 export default function AdminTickets() {
   const navigate = useNavigate();

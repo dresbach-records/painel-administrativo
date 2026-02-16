@@ -38,17 +38,9 @@ export default function AdminSidebar() {
     {
       title: "Governance & Assets",
       items: [
-        { label: "Repositórios", icon: <FolderArchive size={18} />, path: "/admin/repository" },
+        { label: "Repositório", icon: <FolderArchive size={18} />, path: "/admin/repository" },
         { label: "Aprovações", icon: <FileCheck size={18} />, path: "/admin/approvals" },
-      ]
-    },
-    {
-      title: "DevOps",
-      items: [
         { label: "Infraestrutura", icon: <Cloud size={18} />, path: "/admin/infrastructure" },
-        { label: "Servidores", icon: <HardDrive size={18} />, path: "/admin/servers" },
-        { label: "Banco de dados", icon: <Database size={18} />, path: "/admin/databases" },
-        { label: "Gestão de Acessos", icon: <Users size={18} />, path: "/admin/access-management" },
       ]
     }
   ];
@@ -103,7 +95,7 @@ export default function AdminSidebar() {
           <Settings2 size={18} /> Configurações
         </button>
 
-        <div className="flex items-center gap-3 p-3 bg-white/5 rounded-2xl border border-white/5">
+        <div className="flex items-center gap-3 p-3 bg-white/2 rounded-2xl border border-white/5">
           <div className="relative">
             <img 
               className="w-8 h-8 rounded-lg border border-[#19C37D]/30 object-cover" 

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Search, Filter, PlayCircle, Eye, Download, Share2, ChevronLeft, ChevronRight } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
 
 export default function AdminRecordings() {
   const recordings = [

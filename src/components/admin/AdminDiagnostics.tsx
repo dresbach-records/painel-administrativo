@@ -8,9 +8,9 @@ import {
   User, CheckCircle2, AlertTriangle, Info, Clock, MessageSquare,
   ShieldCheck, Eye, Signal
 } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
 // Fix: Import from audit.service instead of deprecated diagnosticService
-import { auditService as diagnosticService, TechnicalReport as DiagnosticReport } from '@/services/audit.service';
+import { auditService as diagnosticService, TechnicalReport as DiagnosticReport } from '@/@/services/audit.service';
 
 export default function AdminDiagnostics() {
   const navigate = useNavigate();

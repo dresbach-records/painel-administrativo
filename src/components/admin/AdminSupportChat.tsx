@@ -4,28 +4,26 @@ import {
   Search, MessageSquare, Send, Paperclip, 
   Code, Bell, AlertCircle, RefreshCcw
 } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
-import { chatService, ChatRoom } from '@/services/chat.service';
-import { useChatSync } from '@/hooks/useChatSync';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
+import { chatService } from '@/@/services/chatService';
+import { useChatSync } from '@/@/hooks/useChatSync';
 
 export default function AdminSupportChat() {
-  const [rooms, setRooms] = useState<ChatRoom[]>([]);
+  const { sessions, error, refresh } = useChatSync(3000);
   const [activeSessionId, setActiveSessionId] = useState('CLIENT-INNOVATEX');
-  const { messages, error, loading } = useChatSync(activeSessionId);
   const [inputText, setInputText] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    chatService.getRooms().then(setRooms);
-  }, []);
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages]);
+    if (activeSessionId && sessions[activeSessionId]?.unreadCount > 0) {
+      chatService.clearUnread(activeSessionId);
+    }
+  }, [sessions, activeSessionId]);
 
-  const activeSession = rooms.find(room => room.id === activeSessionId);
+  const activeSession = sessions[activeSessionId];
 
   const handleSend = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -35,8 +33,9 @@ export default function AdminSupportChat() {
     setInputText('');
     
     try {
-      await chatService.sendMessage(activeSessionId, messageText);
+      await chatService.sendMessage(activeSessionId, messageText, 'Admin Marcus', true);
     } catch (err) {
+      // Falha visível: alert imediato em caso de falha de envio para evitar percepção de sucesso otimista
       alert("ERRO_OPERACIONAL: Falha ao persistir mensagem no servidor.");
       setInputText(messageText);
     }
@@ -68,6 +67,9 @@ export default function AdminSupportChat() {
              <p className="text-slate-500 font-mono text-[10px] uppercase mt-4 mb-10 max-w-xs leading-relaxed">
                {error}. O canal de comunicação foi interrompido por perda de pacote ou queda do nó servidor.
              </p>
+             <button onClick={() => refresh()} className="px-10 py-4 bg-[#19C37D] text-black rounded-xl font-black uppercase text-[10px] tracking-widest hover:brightness-110 flex items-center gap-2">
+                <RefreshCcw size={14} /> Retry_Socket_Connection
+             </button>
           </div>
         ) : (
           <div className="flex-1 flex overflow-hidden animate-in fade-in duration-500">
@@ -83,7 +85,7 @@ export default function AdminSupportChat() {
                 </div>
               </div>
               <div className="flex-1 overflow-y-auto custom-scrollbar">
-                {rooms.map((session) => (
+                {Object.values(sessions).map((session) => (
                   <button 
                     key={session.id}
                     onClick={() => setActiveSessionId(session.id)}
@@ -93,6 +95,7 @@ export default function AdminSupportChat() {
                   >
                     <div className="flex justify-between items-start mb-2">
                       <span className="text-[11px] font-black uppercase tracking-tight text-white truncate max-w-[120px]">{session.company}</span>
+                      <span className="text-[9px] font-mono text-slate-700 font-bold">{session.lastActivity}</span>
                     </div>
                     <p className="text-[10px] text-slate-500 font-medium truncate mb-2">
                       {session.messages[session.messages.length - 1]?.text || 'Aguardando interação...'}
@@ -124,7 +127,7 @@ export default function AdminSupportChat() {
                   </div>
 
                   <div ref={scrollRef} className="flex-1 overflow-y-auto p-10 space-y-10 custom-scrollbar flex flex-col">
-                    {messages.map((msg) => (
+                    {activeSession.messages.map((msg) => (
                       <div key={msg.id} className={`flex flex-col ${msg.isAdmin ? 'items-end' : 'items-start'} max-w-2xl ${msg.isAdmin ? 'ml-auto' : ''}`}>
                         <div className={`p-6 rounded-2xl text-sm leading-relaxed ${
                           msg.isAdmin 
@@ -162,7 +165,7 @@ export default function AdminSupportChat() {
                   </form>
                 </>
               ) : (
-                <div className="flex-1 flex flex-col items-center justify-center p-2.5 text-center space-y-6">
+                <div className="flex-1 flex flex-col items-center justify-center p-20 text-center space-y-6">
                   <div className="w-20 h-20 bg-white/[0.02] border border-white/5 rounded-full flex items-center justify-center text-slate-800">
                     <MessageSquare size={40} />
                   </div>

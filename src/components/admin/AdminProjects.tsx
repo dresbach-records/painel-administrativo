@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { 
   Terminal, LayoutDashboard, Ticket, Workflow, Users, Network, Settings2, LogOut, Cpu, Zap, FileSearch, Banknote, AlertTriangle, RefreshCcw
 } from 'lucide-react';
-import AdminSidebar from '@/components/admin/AdminSidebar';
-import { projectService } from '@/services/projectService';
-import { Project } from '@/services/clientDataService';
+import AdminSidebar from '@/@/components/admin/AdminSidebar';
+import { projectService } from '@/@/services/project.service';
+import { Project } from '@/@/services/clientDataService';
 
 export default function AdminProjects() {
   const navigate = useNavigate();
